@@ -1,0 +1,39 @@
+{
+  "theme": {
+    "colors": {
+      "primary": "#0058be",
+      "secondary": "#6b38d4",
+      "tertiary": "#006947",
+      "background": {
+        "light": "#f8f9ff",
+        "dark": "#213145",
+        "elevated": "#eff4ff"
+      },
+      "surface": {
+        "lowest": "#ffffff",
+        "low": "#eff4ff",
+        "default": "#e5eeff",
+        "high": "#dce9ff",
+        "highest": "#d3e4fe"
+      },
+      "on-surface": "#0b1c30",
+      "on-surface-variant": "#424754",
+      "outline-variant": "#c2c6d6"
+    },
+    "typography": {
+      "display": ["Manrope", "sans-serif"],
+      "body": ["Inter", "sans-serif"],
+      "icons": "Material Symbols Outlined"
+    },
+    "spacing": {
+      "sidebar-w": "16rem",
+      "topbar-h": "4rem",
+      "section-gap": "3rem"
+    },
+    "effects": {
+      "glass-insight": "background: rgba(239,244,255,0.8); backdrop-filter: blur(16px)",
+      "signature-gradient": "linear-gradient(135deg, #0058be 0%, #2170e4 100%)",
+      "ambient-shadow": "0 20px 40px rgba(11,28,48,0.05)"
+    }
+  }
+}

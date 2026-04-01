@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clinical Curator AI - CSR Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#23005c",
+              "inverse-on-surface": "#eaf1ff",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#dce9ff",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-container": "#f5fff6",
+              "tertiary-container": "#00855b",
+              "on-primary-fixed-variant": "#004395",
+              "on-error": "#ffffff",
+              "inverse-surface": "#213145",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#6ffbbe",
+              "inverse-primary": "#adc6ff",
+              "primary-fixed-dim": "#adc6ff",
+              "on-secondary-container": "#fffbff",
+              "on-primary-container": "#fefcff",
+              "primary": "#0058be",
+              "surface-tint": "#005ac2",
+              "surface-bright": "#f8f9ff",
+              "secondary-fixed": "#e9ddff",
+              "surface": "#f8f9ff",
+              "secondary": "#6b38d4",
+              "on-primary-fixed": "#001a42",
+              "surface-dim": "#cbdbf5",
+              "on-background": "#0b1c30",
+              "on-surface": "#0b1c30",
+              "secondary-container": "#8455ef",
+              "on-secondary-fixed-variant": "#5516be",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-highest": "#d3e4fe",
+              "outline": "#727785",
+              "surface-container": "#e5eeff",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "background": "#f8f9ff",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#005236",
+              "outline-variant": "#c2c6d6",
+              "secondary-fixed-dim": "#d0bcff",
+              "tertiary-fixed-dim": "#4edea3",
+              "on-tertiary-fixed": "#002113",
+              "tertiary": "#006947",
+              "surface-container-low": "#eff4ff",
+              "surface-variant": "#d3e4fe",
+              "primary-container": "#2170e4",
+              "on-surface-variant": "#424754",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-insight {
+        background: rgba(239, 244, 255, 0.8);
+        backdrop-filter: blur(16px);
+      }
+      .signature-gradient {
+        background: linear-gradient(135deg, #0058be 0%, #2170e4 100%);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#eff4ff] dark:bg-slate-900 shadow-[20px_0_40px_rgba(11,28,48,0.03)] flex flex-col h-full py-6 z-50">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h2 class="font-manrope font-extrabold text-blue-900 dark:text-blue-100 leading-tight">Pharma CSR</h2>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Clinical Reporting</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-blue-700 dark:text-blue-300 border-r-4 border-blue-600 dark:border-blue-400 bg-blue-50/50 dark:bg-blue-900/20 font-manrope text-sm font-medium transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Data Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span>Report Builder</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Compliance</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-6">
+<button class="w-full signature-gradient text-white py-3 rounded-full font-manrope font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 scale-95 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Report
+            </button>
+<div class="pt-6 border-t border-blue-100/50">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-blue-600 transition-all text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-blue-600 transition-all text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full h-16 sticky top-0 z-40 bg-gradient-to-b from-[#f8f9ff] to-[#eff4ff] dark:from-slate-950 dark:to-slate-900 flex items-center justify-between px-8 border-b border-blue-100/20">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-manrope font-bold tracking-tight text-blue-800 dark:text-blue-300">Clinical Curator AI</h1>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-surface-container-lowest border-none rounded-full py-1.5 pl-10 pr-4 text-sm w-64 focus:ring-2 focus:ring-blue-200 transition-all outline-none" placeholder="Search reports or data..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-blue-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-blue-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden ml-2 bg-blue-100">
+<img alt="User profile avatar" data-alt="close up professional headshot of a female pharmaceutical researcher in a clean modern laboratory setting with soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvU7Gu2-pSk-cgHNHHN4e12fErGZK46ydYh8u89Cc-2KJggBqyVj8YXD2aHkcb_wa2j7w5KyWBnNp_7BCGmZ9D8M7fvwrRfnpl29aboXRyVG6IuAL_9L99STtPk_rjE-CE_qbcUT7D_D-pO8iN3aKDof6vMIGuVchkd-SmQBbTTJaSL8NqAAI_TTF9AtQrDbwehmWXmeJxjyOB63i3TNVvdMyUXj5daXEpVqqAEuGMQottmEzIxvXMdIaQiBGfxuSkJCx_fH7sFaU"/>
+</div>
+</div>
+</header>
+<!-- Content Body -->
+<div class="p-12 space-y-12">
+<!-- Hero Metrics: Bento Grid Layout -->
+<section class="grid grid-cols-12 gap-6">
+<!-- Main Ongoing Report Status -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-blue-50/50 rounded-full -mr-20 -mt-20 blur-3xl group-hover:bg-blue-100/50 transition-colors"></div>
+<div class="relative">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-widest">Active Generation</span>
+<span class="text-slate-400 text-xs">• 12m left</span>
+</div>
+<h2 class="text-2xl font-manrope font-extrabold text-on-surface mb-8">2025 Clinical Impact Report</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-sm font-medium text-slate-600">Phase 3: Environmental Analysis</span>
+<span class="text-sm font-bold text-primary">65%</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full signature-gradient rounded-full" style="width: 65%"></div>
+</div>
+<p class="text-xs text-slate-400 max-w-md">The AI is currently correlating clinical trial environmental waste data with global sustainability benchmarks.</p>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="px-6 py-2.5 bg-surface-container-high text-on-primary-fixed-variant rounded-full text-xs font-bold transition-all hover:bg-surface-container-highest">Preview Draft</button>
+<button class="px-6 py-2.5 text-primary text-xs font-bold hover:underline transition-all">View Logs</button>
+</div>
+</div>
+<!-- Vertical Quick Metrics -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-tertiary-container text-white p-6 rounded-xl flex flex-col justify-between h-[calc(50%-0.75rem)] relative overflow-hidden">
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl opacity-10" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<p class="text-xs font-medium text-tertiary-fixed opacity-90 uppercase tracking-widest mb-1">Compliance Confidence</p>
+<h3 class="text-4xl font-manrope font-extrabold">98%</h3>
+</div>
+<p class="text-[10px] opacity-80 mt-2 font-medium">Against EMA/FDA Sustainability Standards</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-center gap-6 h-[calc(50%-0.75rem)] border-l-4 border-secondary shadow-sm">
+<div class="bg-secondary-fixed w-14 h-14 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+<div>
+<h3 class="text-2xl font-manrope font-extrabold text-on-surface leading-none">120 <span class="text-sm font-medium text-slate-500">hrs</span></h3>
+<p class="text-xs text-slate-500 font-medium">Efficiency Gains This Month</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Middle Section: Actions & Approvals -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Action Cards -->
+<button class="bg-surface-container-low p-6 rounded-xl text-left group hover:bg-primary transition-all duration-300">
+<div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4 text-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_chart</span>
+</div>
+<h4 class="font-manrope font-bold text-on-surface group-hover:text-white transition-colors">Start New Report</h4>
+<p class="text-xs text-slate-500 group-hover:text-blue-100 mt-1 transition-colors">Generate tailored CSR documents from raw data.</p>
+</button>
+<button class="bg-surface-container-low p-6 rounded-xl text-left group hover:bg-primary transition-all duration-300">
+<div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4 text-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">cloud_upload</span>
+</div>
+<h4 class="font-manrope font-bold text-on-surface group-hover:text-white transition-colors">Upload Source Data</h4>
+<p class="text-xs text-slate-500 group-hover:text-blue-100 mt-1 transition-colors">Sync clinical trial logs or supply chain metrics.</p>
+</button>
+<!-- Pending Approvals Highlight -->
+<div class="bg-surface-container-highest/30 p-6 rounded-xl flex items-center justify-between border-2 border-dashed border-blue-200">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<h4 class="font-manrope font-bold text-on-surface">Pending Approvals</h4>
+</div>
+<p class="text-xs text-slate-500">3 reports require executive sign-off.</p>
+</div>
+<span class="text-4xl font-manrope font-extrabold text-primary">03</span>
+</div>
+</section>
+<!-- Bottom Section: Recent Drafts (List Layout with Asymmetric Details) -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-manrope font-bold text-on-surface">Recent Drafts</h3>
+<button class="text-sm font-semibold text-primary flex items-center gap-1">
+                        View All Reports
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Draft Row 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between hover:translate-x-1 transition-all duration-200 group">
+<div class="flex items-center gap-6 flex-1">
+<div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface text-sm">Q4 2024 Supply Chain Resilience</h5>
+<p class="text-[10px] text-slate-400 font-medium">Modified 2 hours ago • By Sarah Chen</p>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full border-2 border-white bg-slate-200 overflow-hidden" title="AI Analyst">
+<img alt="AI Agent" data-alt="minimalist 3D render of a friendly artificial intelligence sphere in a soft blue medical aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUqJ-HpET4zxVCgdGNS_8cxcxzs0x7COd81ArrERky2SYfjFtQ4jaospX8tcJGPQXsfBj5sjktq7lZYoA-YB33pdyyTSYxpVoYiekyiMfjixv7R5psaKCUWKeq8KOFtEuE1T-ProUiJMJZFGgNOOMZgsC6X_HaR9Y1YaIzq_Rl_8IpTkLVS7cVYMM12FxXg_gNm_9snPkLKmF0ZhDH2-CTgXJ_N2xfJea3W8q9w_tJTN80VU3YQrsvIMKG1jBzs_NjO9XHF0pknjY"/>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-white bg-slate-200 overflow-hidden" title="Sarah C.">
+<img alt="Sarah C" data-alt="professional portrait of a middle aged Asian woman working on a laptop in a bright airy office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvBvASkTB5UsCApLOQE0ZaG_eciP_KbDDOy33010SvxXQqIMTUEu_-G-8WB_t7buyuFfcSfKufRxkp97NkGdmz59IVRFWkkDVC-0jCm0JJve6qkb9U1jR_SamRoCAwXMjUk7CUXULL-TnbLTvcfvDEqBlR-llxveqqTkqoq3us9P6p9yJQwDLVPa8jd7ADvUQoAXbUhPqLd0MTxpe0IDF_bjN_8UzNVv_-BnZFqMFNUuf_XDdu65W9Ya-ZzICGdVK129fxAO4TL78"/>
+</div>
+</div>
+<span class="px-3 py-1 bg-secondary-container/10 text-secondary text-[10px] font-bold rounded-full uppercase tracking-tighter">AI Draft</span>
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Draft Row 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between hover:translate-x-1 transition-all duration-200 group">
+<div class="flex items-center gap-6 flex-1">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface text-sm">Global Decarbonization Roadmap</h5>
+<p class="text-[10px] text-slate-400 font-medium">Modified yesterday • By Dr. Michael Voss</p>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+<img alt="Michael V" data-alt="professional portrait of an older Caucasian man with glasses in a formal business suit sitting in a mahogany library" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZh767Kml0gloNF3m1u5kge-pItZKsAfVS4x4u0p1mcdbhj7voo-wJWPox4Ap0j9qfAQn3XnYwq9QZ7exq2_91bHuCoARXzzBUSBvWaZxbpTmwowuoZOf16SP4QqEOYVKQtv57NzML-E4BiyX5Mm01E1LakBsUWJDKaqv0t7ZD_KlxLXUSl8M6Dq7P0AFtxZ_kLQwA43BfPBla7Rq63dc3Sqn_cEKrMWKrvs6JujcCn85aRIxifAp8YKUIZu-bpTgn4rESd4e-i4E"/>
+</div>
+</div>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[10px] font-bold rounded-full uppercase tracking-tighter">Reviewing</span>
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Draft Row 3 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between hover:translate-x-1 transition-all duration-200 group">
+<div class="flex items-center gap-6 flex-1">
+<div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">fact_check</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface text-sm">H1 Patient Accessibility Report</h5>
+<p class="text-[10px] text-slate-400 font-medium">Modified 3 days ago • System Verified</p>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full border-2 border-white bg-tertiary flex items-center justify-center text-[8px] text-white font-bold">SY</div>
+</div>
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary text-[10px] font-bold rounded-full uppercase tracking-tighter">Ready</span>
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity text-slate-400 hover:text-primary">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Insight Glass Component (Floating Style) -->
+<section class="glass-insight p-6 rounded-2xl border border-white/50 flex gap-6 items-start">
+<div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="space-y-2">
+<h4 class="font-manrope font-bold text-secondary text-sm">Curator Insight: Data Anomalies Detected</h4>
+<p class="text-sm text-slate-600 leading-relaxed">I've noticed a 14% discrepancy in water usage reporting between the Swiss and Singapore manufacturing hubs. Suggesting a <a class="text-primary font-semibold underline decoration-2 decoration-blue-200" href="#">targeted audit</a> to maintain your 98% compliance confidence score before final generation.</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-white/80 px-4 py-2 rounded-lg text-xs font-bold text-slate-700 hover:bg-white transition-colors shadow-sm">Dismiss</button>
+<button class="bg-secondary text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-on-secondary-fixed transition-colors shadow-sm">Auto-Reconcile</button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,1 @@
+Feed the example to claude and make it create the design.md based on the example 
